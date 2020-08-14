@@ -51,9 +51,9 @@ def handle_message(event):
     if '我要查地點' in msg:
         location_message = LocationSendMessage(
             title='my location',
-            address='Tokyo',
-            latitude=35.65910807942215,
-            longitude=139.70372892916203
+            address='Taipei',
+            latitude=25.033976,
+            longitude=121.5623502
         )
         line_bot_api.reply_message(
         event.reply_token,
