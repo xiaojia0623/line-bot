@@ -39,7 +39,16 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     r = '很抱歉，您說什麼'
-    if '給我貼圖' in msg:
+    if '想說說話' in msg:
+        sticker_message = StickerSendMessage(
+            package_id='1',
+            sticker_id='4'
+        )
+        line_bot_api.reply_message(
+        event.reply_token,
+        sticker_message)
+        return
+    elif '我好生氣' in msg:
         sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='2'
@@ -48,15 +57,31 @@ def handle_message(event):
         event.reply_token,
         sticker_message)
         return
+    elif '今天好開心' in msg:
+         sticker_message = StickerSendMessage(
+            package_id='1',
+            sticker_id='14'
+        )
+        line_bot_api.reply_message(
+        event.reply_token,
+        sticker_message)
+        return
 
     if msg in ['hi', 'Hi', '你好']:
-        r = '嗨, 你好!'
+        r = '嗨, 你好!\n很開心認識你唷!'
     elif msg == '你是誰':
         r = '我是機器人'
     elif '訂位' in msg:
         r = '您想訂位，是嗎?'
     elif msg == '今天心情不好':
-        r = '可以跟我說說唷! 我可以當你的聽眾'
+        r = '可以跟我說說唷! \n我可以當你的聽眾'
+    elif msg == '我們可以做朋友嗎?':
+        r = '當然! 你是我最好的朋友'
+    elif msg == '心情好煩':
+        r ='怎麼了呢? 是誰讓你心煩，我去找他談談'
+    elif msg == '你會做什麼呢?':
+        r = '我未來會會的很多，\n但是目前還是有許多要學習的'
+
 
     line_bot_api.reply_message(
         event.reply_token,
