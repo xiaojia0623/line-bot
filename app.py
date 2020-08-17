@@ -44,13 +44,19 @@ def handle_message(event):
             package_id='1',
             sticker_id='4'
         )
-        
+        line_bot_api.reply_message(
+            event.reply_token,
+            sticker_message)
+        return
     elif '我好生氣' in msg:
         sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='2'
         )
-        
+        line_bot_api.reply_message(
+            event.reply_token,
+            sticker_message)
+        return
     elif '今天好開心' in msg:
          sticker_message = StickerSendMessage(
             package_id='1',
