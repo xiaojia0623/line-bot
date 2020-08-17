@@ -38,13 +38,13 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    r = '很抱歉，您說什麼'
+    r = 'Sorry! 我不了解你的意思'
     if '想說說話' in msg:
         sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='4'
         )
-        line_bot_api.reply_message(
+    line_bot_api.reply_message(
         event.reply_token,
         sticker_message)
         return
@@ -53,7 +53,7 @@ def handle_message(event):
             package_id='1',
             sticker_id='2'
         )
-        line_bot_api.reply_message(
+    line_bot_api.reply_message(
         event.reply_token,
         sticker_message)
         return
@@ -62,7 +62,7 @@ def handle_message(event):
             package_id='1',
             sticker_id='14'
         )
-        line_bot_api.reply_message(
+    line_bot_api.reply_message(
         event.reply_token,
         sticker_message)
         return
